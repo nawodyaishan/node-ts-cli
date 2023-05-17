@@ -1,11 +1,14 @@
 {
   "name": "node-ts-cli",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "repository": "https://github.com/nawodyaishan/node-ts-cli.git",
   "author": "nawodyaishan <nawodyain@gmail.com>",
   "license": "MIT",
   "type": "module",
+  "scripts": {
+    "dev": "node ./dist/index.js"
+  },
   "devDependencies": {
     "@types/chalk": "^2.2.0",
     "@types/chalk-animation": "^1.6.1",
