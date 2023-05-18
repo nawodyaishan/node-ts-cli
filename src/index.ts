@@ -6,7 +6,7 @@ import figlet from "figlet";
 import {createSpinner} from "nanospinner";
 import prompt = inquirer.prompt;
 
-let playername: string;
+let playerName: string;
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 
 
@@ -34,6 +34,7 @@ async function askName() {
                 return 'Player'
             },
         })
+    playerName = answers.player_name
 }
 
 // @ts-ignore
@@ -41,9 +42,9 @@ await askName()
 
 async function askCricketWorldCupYear() {
     const answers = await inquirer.prompt({
-            name: "What is the Sri Lankan World Cup year ?",
+            name: "question_1",
             type: "list",
-            message: "TypeScript is life",
+            message: "What is the Sri Lankan World Cup year ?",
             choices: [
                 "2010",
                 "1996", "2007"
@@ -51,7 +52,7 @@ async function askCricketWorldCupYear() {
         }
     )
 
-    return handleAnswer(answers.askCricketWorldCupYear === '1996')
+    return handleAnswer(answers.question_1 === '1996')
 }
 
 async function handleAnswer(isCorrect: boolean) {
@@ -59,7 +60,7 @@ async function handleAnswer(isCorrect: boolean) {
     await sleep()
 
     if (isCorrect) {
-        spinner.success({text: `Nice work ${playername}`})
+        spinner.success({text: `Nice work ${playerName}`})
 
     } else {
         spinner.error({text: "Game Over"})
