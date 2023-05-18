@@ -64,10 +64,20 @@ async function handleAnswer(isCorrect: boolean) {
 
     } else {
         spinner.error({text: "Game Over"})
-        process.exit()
+        process.exit(1)
     }
-
 }
 
 // @ts-ignore
 await askCricketWorldCupYear()
+
+async function winner() {
+    console.clear()
+    const msg = `congrats, ${playerName} ! \n $1 000 000`;
+    figlet(msg, (err, data) => {
+        console.log(gradient.pastel.multiline(data))
+    })
+}
+
+// @ts-ignore
+await winner()
