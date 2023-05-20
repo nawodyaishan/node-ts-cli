@@ -1,1 +1,1 @@
-# node-ts-cli
+# CLI using InquirerJs and TypeScript
