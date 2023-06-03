@@ -4,7 +4,7 @@ import gradient from "gradient-string";
 import chalkAnimation from "chalk-animation";
 import figlet from "figlet";
 import {createSpinner} from "nanospinner";
-import prompt = inquirer.prompt;
+
 
 let playerName: string;
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
@@ -17,12 +17,13 @@ async function welcome() {
 
     console.log(`${chalk.bgBlue(`HOW TO PLAY`)}
     I am a process in your computer !!`)
-
 }
 
 
-// @ts-ignore
-await welcome()
+(async () => {
+    await welcome();
+    console.clear();
+})();
 
 async function askName() {
     const answers = await inquirer.prompt(
@@ -37,8 +38,10 @@ async function askName() {
     playerName = answers.player_name
 }
 
-// @ts-ignore
-await askName()
+(async () => {
+    await askName();
+    console.clear();
+})();
 
 async function askCricketWorldCupYear() {
     const answers = await inquirer.prompt({
@@ -68,8 +71,11 @@ async function handleAnswer(isCorrect: boolean) {
     }
 }
 
-// @ts-ignore
-await askCricketWorldCupYear()
+(async () => {
+    await askCricketWorldCupYear();
+    console.clear();
+})();
+
 
 async function winner() {
     console.clear()
@@ -79,5 +85,8 @@ async function winner() {
     })
 }
 
-// @ts-ignore
-await winner()
+
+(async () => {
+    await winner();
+    console.clear();
+})();
